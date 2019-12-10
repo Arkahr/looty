@@ -26,7 +26,7 @@ import looty.views.Alerter
 object PoeRpcs {
 
   // catched some bugs? Go fishing! ;)
-  val debuggMode = true;
+  val debugMode = false;
 
   val basePoeUrl = "https://www.pathofexile.com"
   import PoeTypes._
@@ -127,7 +127,7 @@ object PoeRpcs {
             reason.asJsAny.asJsDyn.status.asInstanceOf[Any] match {
               case status : Int =>
                 if (status == 401) {
-                  window.console.log("Received Unauthorized Access status == 401 bett ", res.asJsAny)
+                  window.console.log("Received JSFuture Failure, status == 401 You are not logged into pathofexile.com site", res.asJsAny)
                   p.completeWith(Future.failed(UnauthorizedAccessFailure(""+res)))
                 } else if (status == 429) {
                   window.console.log("Received JSFuture Failure, status == 429 Definitely throttling", res.asJsAny)

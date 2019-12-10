@@ -74,7 +74,7 @@ object Alerter {
 		// as follows .info - question mark in circle, .warn - exclamation mark in triangle, .error - exclamation mark in circle
 		var fontAwesomeSignClass = ""
 		cls match {
-			case "info" => fontAwesomeSignClass = "<i class='fa fa-question-circle'></i>"
+			case "info" => fontAwesomeSignClass = "<i class='fa fa-info-circle'></i>"
 			case "warn" => fontAwesomeSignClass = "<i class='fa fa-exclamation-triangle'></i>"
 			case "error" => fontAwesomeSignClass = "<i class='fa fa-exclamation-circle'></i>"
 			case default => fontAwesomeSignClass = ""
@@ -86,11 +86,10 @@ object Alerter {
 //  private val feedback_0_2_1_10 = "http://www.reddit.com/r/pathofexile/comments/2ek6da/tools_looty_stash_searching_and_gem_xp_tracking/"
 //  private def redditLink(msg: String) = s"""<a target="_blank" href="$feedback_0_2_1_10">$msg</a>"""
 
+  def LootyGGGForumUrl() = "https://www.pathofexile.com/forum/view-thread/832233"
 
-  private val mainGGGForumUrl = "https://www.pathofexile.com/forum/view-thread/832233"
-  private def mainGGGForumLink(msg: String) = s"""<a target="_blank" href="$mainGGGForumUrl">$msg</a>"""
-
-  def featuresLink(msg: String) = mainGGGForumLink(msg: String)
+  def featuresLink(url: String, linkName: String ) =  s"""<a target="_blank" href="$url">$linkName</a>"""
+  //def featuresLink(msg: String) = mainGGGForumLink(msg: String)
 
   // Returns a random integer between min (included) and max (excluded)
   def getRandomInt(min: Int, max: Int): Int = {
